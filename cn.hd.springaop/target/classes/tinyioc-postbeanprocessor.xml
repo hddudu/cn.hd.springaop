@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<bean id="outputService" class="com.aop.test.OutputServiceImpl" />
+
+	<bean id="helloService" class="com.aop.test.HelloServiceImpl">
+		<property name="text" value="Hello world"/>
+		<property name="outputService" ref="outputService"></property>
+	</bean>
+	<!-- 通过aop往其中切入日志记录 -->
+	<bean id="beanInitializeLogger" class="com.aop.test.BeanInitializeLogger"></bean>
+	
+</beans>

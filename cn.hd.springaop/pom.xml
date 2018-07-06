@@ -1,0 +1,218 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mySpring</groupId>
+  <artifactId>cn.hd.springaop</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>cn.hd.springaop Maven Webapp</name>
+  <properties>
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <url>http://maven.apache.org</url><!-- 可以是github发布的地址 -->
+  <description>a 模仿的spring</description>
+  <developers>
+  	<developer>
+  		<id>spring-ioc-simple</id>
+  		<name>do.hong</name>
+  		<email>15574948314@163.com</email>
+  	</developer>
+  </developers>
+  <dependencies>
+  
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>3.8.1</version>
+	    <scope>test</scope>
+	</dependency>
+
+  	
+    
+    <!-- spring核心包 -->
+  <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-core</artifactId>
+	    <version>4.3.7.RELEASE</version>
+	</dependency>
+    
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-beans</artifactId>
+	    <version>4.3.7.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>4.3.7.RELEASE</version>
+	</dependency> 
+	
+	<!-- spring的测试框架包 -->
+	<!-- <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-test</artifactId>
+	    <version>4.3.7.RELEASE</version>
+	    <scope>test</scope>
+	</dependency> -->
+	
+    
+    <!-- 日志记录 -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>1.2.11</version>
+	</dependency>
+    <!-- aop框架源码 -->
+    
+    <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
+	<dependency>
+	    <groupId>aopalliance</groupId>
+	    <artifactId>aopalliance</artifactId>
+	    <version>1.0</version>
+	</dependency>
+    
+	<dependency>
+	    <groupId>org.aspectj</groupId>
+	    <artifactId>aspectjweaver</artifactId>
+	    <version>1.8.6</version>
+	</dependency>
+
+    
+    <dependency>
+        <groupId>cglib</groupId>
+        <artifactId>cglib-nodep</artifactId>
+        <version>2.1_3</version>
+    </dependency>
+    
+  </dependencies>
+  <build>
+    <finalName>cn.hd.springaop</finalName>
+    <plugins>
+    	<!-- 打包跳过测试代码部分 -->
+    	<!--  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <parallel>methods</parallel>
+                    <threadCount>20</threadCount>
+                </configuration>
+        </plugin> -->
+    
+    	 <!-- <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.4</version>
+            <executions>
+                <execution>
+                    <id>attach-sources</id>
+                    <goals>
+                        <goal>
+                            jar
+                        </goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    
+    	<plugin>
+    		<groupId>org.apache.maven.plugins</groupId>
+    		<artifactId>maven-javadoc-plugin</artifactId>
+    		<version>2.9.1</version>
+    		<configuration>
+    			<encoding>UTF-8</encoding>
+    		</configuration>
+    		<executions>
+    			<execution>
+    				<id>attach-javadocs</id>
+    				<goals>
+    					<goal>jar</goal>
+    				</goals>
+    			</execution>
+    		</executions>
+    	</plugin>  -->
+    	 
+		<!-- 这个是在远程参仓库下进行配置可行 -->
+           <!--  <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+                <configuration>
+                    <show>private</show>
+                    <failOnError>false</failOnError>
+                    <excludePackageNames>org.json.*,org.weborganic.*</excludePackageNames>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+            
+            <!-- <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin> -->
+          <!--   <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin> -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
+             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.18.1</version>
+                <configuration>
+                    <skipTests>false</skipTests>
+                    <parallel>methods</parallel>
+                    <threadCount>20</threadCount>
+                </configuration>
+            </plugin>
+
+            <!-- <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>
+                                jar
+                            </goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin> -->
+    </plugins>
+  </build>
+</project>
